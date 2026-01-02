@@ -9,7 +9,7 @@ const AppContextProvider = (props) => {
   const [showLogin, setShowLogin] = useState(false);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [credit, setCredit] = useState(0);
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = 'https://imagai-mizg.onrender.com';
 
   const navigate = useNavigate()
   const loadCreditsData = async (authToken = token) => {
@@ -36,7 +36,12 @@ const AppContextProvider = (props) => {
 
   const generateImage = async(prompt) =>{
     try{
-      const {data} = await axios.post(backendUrl + '/api/image/generate-image', {prompt}, {headers : {token}})
+      const {data} = await axios.post(backendUrl + '/api/image/generate-image', {prompt}, {
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+}
+)
 
       if(data.success){
         loadCreditsData()

@@ -12,8 +12,10 @@ const app = express()
 app.use(express.json())   // ✅ FIXED
 app.use(cors({
   origin: process.env.CLIENT_URL,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }))
+
 
 await connectDB()
 
