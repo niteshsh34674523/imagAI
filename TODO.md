@@ -1,0 +1,3 @@
+- [x] Fix syntax error in verifyRazorpay function: remove extra () after res.json
+- [x] Fix incorrect field name: change transactionData.userid to transactionData.userId
+- [x] Verify verifyRazorpay is properly exported (already done)
