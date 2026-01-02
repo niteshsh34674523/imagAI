@@ -11,7 +11,7 @@ const app = express()
 
 app.use(express.json())   // ✅ FIXED
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: 'https://text-to-image-generator-j81w.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }))
